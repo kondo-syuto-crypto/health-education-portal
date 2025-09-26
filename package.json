@@ -1,27 +1,20 @@
 {
-  "name": "webapp",
+  "name": "health-education-portal",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:sandbox": "wrangler pages dev dist --d1=webapp-education-portal --local --ip 0.0.0.0 --port 3000",
     "build": "vite build",
     "preview": "wrangler pages dev",
-    "deploy": "npm run build && wrangler pages deploy",
-    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
-    "db:migrate:local": "wrangler d1 migrations apply webapp-education-portal --local",
-    "db:migrate:prod": "wrangler d1 migrations apply webapp-education-portal",
-    "db:seed": "wrangler d1 execute webapp-education-portal --local --file=./seed.sql",
-    "db:reset": "rm -rf .wrangler/state/v3/d1 && npm run db:migrate:local && npm run db:seed",
-    "clean-port": "fuser -k 3000/tcp 2>/dev/null || true"
+    "deploy": "npm run build && wrangler pages deploy"
   },
   "dependencies": {
     "hono": "^4.9.8"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20250705.0",
+    "@cloudflare/workers-types": "^4.20250924.0",
     "@hono/vite-build": "^1.2.0",
     "@hono/vite-dev-server": "^0.18.2",
     "vite": "^6.3.5",
-    "wrangler": "^4.4.0"
+    "wrangler": "^4.40.0"
   }
 }
